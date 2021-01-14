@@ -1,11 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect } from 'react';
+import NavBar from '../NavBar/NavBar';
+import AddToDo from '../AddToDo/AddToDo';
+import LogIn from '../LogIn/LogIn';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      < AddToDo />
+      {/* <LogIn /> */}
+      < NavBar />
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -18,7 +23,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }
