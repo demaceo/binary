@@ -1,0 +1,67 @@
+.todo-form {
+    background-color: hsl(34, 78%, 91%, 0.6);
+    display: flex;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2), 0 -1px 4px rgba(0, 0, 0, .2);
+    justify-content: space-around;
+    flex-direction: column;
+    border-radius: 15px;
+    width: 25vw;
+    height: 25vh;
+    align-items: center;
+    /* box-shadow: ; */
+}
+
+.input-todo {
+    width: 20vw;
+    height: 8vh;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    color: black;
+    outline: none;
+    padding: 5px;
+}
+
+#textarea.md-textarea-scroll {
+    overflow-y: visible;
+}
+
+#textarea.md-textarea {
+    padding: 0;
+    resize: none;
+    min-height: 3rem;
+}
+
+.dropdown-container {
+    display: flex;
+    width: 20vw;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+}
+
+.dropdown-menu {
+    width: 16vw;
+    height: 3vh;
+    display: flex;
+    outline: none;
+}
+
+.button-container {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    justify-content: flex-end;
+}
+
+.toDoButton {
+   width: 5vw;
+   right: 5%;
+   height: 2.5vh;
+   border-radius: 5px;
+   border: none;
+   background-color: #282c34a1;
+   color: white;
+   outline: none;
+}

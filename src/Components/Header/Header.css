@@ -1,0 +1,18 @@
+.header-container{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    background-color: grey;
+    margin: 1em 0;
+}
+
+
+.date-container {
+    width: 80%;
+    font-size: 2em;
+}
+
+.header-data {
+    display: flex;
+    flex-direction: column;
+}
