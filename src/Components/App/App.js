@@ -8,7 +8,7 @@ import ToDos from '../ToDos/ToDos';
 
 function App() {
   const [todos, setTodos] = useState([]);
-  console.log(todos);
+  const [priority, setPriority] = useState('');
   
   const addToDo = (newToDo) => {
     if (todos.length === 0) {
@@ -19,7 +19,6 @@ function App() {
     //   setTodos([newToDo, ...todos]);
     //   // setLocalStorage([newToDo, ...todos])
     // }
-      console.log(todos);
   }
   
   const delToDo = (id) => {

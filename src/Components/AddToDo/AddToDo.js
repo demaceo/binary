@@ -9,7 +9,7 @@ function AddToDo(props) {
     const inputRef = useRef();
 
     const createNewTodo = () => {
-        inputRef.current.focus();
+        // inputRef.current.focus();
         // setToDo(inputRef.current.value);
         const newToDo = {
           id: nanoid(),
