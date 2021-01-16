@@ -5,7 +5,7 @@ import './Header.css';
 function Header() {
     const [time, setTime] = useState();
     const [date, setDate] = useState(Date().toLocaleString().slice(0, 11));
-    const [counter, setCounter] =  useState(0);
+    // const [counter, setCounter] =  useState(0);
     const renderCounter = useRef(0)
     const currentMonth = date.slice(0, 7);
     const timeRef = useRef();

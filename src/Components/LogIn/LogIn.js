@@ -1,5 +1,5 @@
 import "./LogIn.css";
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 
 function LogIn() {
     const nameRef = useRef();

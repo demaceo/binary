@@ -1,0 +1,21 @@
+.news-article {
+    background-color: bisque;
+    border-radius: 10px;
+    width: 80vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1em 0em;
+}
+
+.article-title {
+    font-size: 1.5em;
+}
+
+.article-img {
+
+}
+.article-info {
+
+}
