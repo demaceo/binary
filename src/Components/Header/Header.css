@@ -1,18 +1,83 @@
 .header-container{
     display: flex;
     flex-direction: row;
-    width: 90%;
+    width: 95%;
+    height: 20vh;
+    border-radius: 5px;
     background-color: grey;
-    margin: 1em 0;
+    margin: 1em 0em;
+    justify-content: center;
+    font-family: 'Dancing Script',
+    cursive;
+    font-family: 'Montserrat',
+    sans-serif;
+    color:#282c34;
+}
+
+.hidden {
+    display: none 
+}
+
+.date {
+    width: 85%;
+    height: auto;
+    font-size: 5rem;
+    position: absolute;
+    margin-bottom: 0;
+    margin-top: 40px;
 }
 
 
-.date-container {
-    width: 80%;
-    font-size: 2em;
+.time {
+    width: 85%;
+    height: auto;
+    position: absolute;
+    margin-bottom: 10px;
+    align-self: flex-end;
 }
 
-.header-data {
+.header-arrows {
     display: flex;
-    flex-direction: column;
+    align-self: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+}
+
+.header-arrows i {
+    transition: all 0.2s ease-in-out;
+    font-size: 2.5em;
+}
+
+.header-arrows i:hover {
+    color: white;
+    transform: scale(1.075);
+    font-size: 2.8em;
+    box-shadow: 2px 3px 20px 1px grey;
+}
+
+
+/* .time {
+    align-self: flex-end;
+    margin-right: 1vw;
+} */
+
+.fa-hourglass-half {
+    width: 85%;
+    height: auto;
+    position: absolute;
+    margin-bottom: 10px;
+    align-self: flex-end;
+    font-size: 1.5em;
+    color: rgb(165, 42, 42);
+    animation: spin 5s infinite;
+  }
+
+  @keyframes spin {
+    0% {
+        transform: rotate(360deg);
+    }
+    /* 100% {
+        transform: rotate(360deg);
+    } */
 }
