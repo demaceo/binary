@@ -3,15 +3,14 @@
     flex-direction: row;
     width: 95%;
     height: 20vh;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: grey;
     margin: 1em 0em;
     justify-content: center;
-    font-family: 'Dancing Script',
-    cursive;
-    font-family: 'Montserrat',
-    sans-serif;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Montserrat', sans-serif;
     color:#282c34;
+    /* box-shadow: 0px 5px 15px 0px rgb(241, 232, 232); */
 }
 
 .hidden {
@@ -25,8 +24,8 @@
     position: absolute;
     margin-bottom: 0;
     margin-top: 40px;
+    transition: all 1s ease-in-out;
 }
-
 
 .time {
     width: 85%;
@@ -45,7 +44,7 @@
 }
 
 .header-arrows i {
-    transition: all 0.2s ease-in-out;
+    transition: all 0.5s ease-in-out;
     font-size: 2.5em;
 }
 
@@ -56,10 +55,18 @@
     box-shadow: 2px 3px 20px 1px grey;
 }
 
+/* @keyframes grow {
+    0% {
+        transform: scale(1);
+    }
 
-/* .time {
-    align-self: flex-end;
-    margin-right: 1vw;
+    100% {
+        transform: scale(3);
+    }
+}
+
+.pulse {
+    animation: grow 1s infinite linear;
 } */
 
 .fa-hourglass-half {
@@ -68,8 +75,9 @@
     position: absolute;
     margin-bottom: 10px;
     align-self: flex-end;
-    font-size: 1.5em;
+    font-size: 2em;
     color: rgb(165, 42, 42);
+/* background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%); */
     animation: clockwise 5s infinite;
   }
 

@@ -28,9 +28,15 @@
     display: block;
     width: calc(330px / 4);
     height: 65px;
+    color: black;
     text-align: center;
     line-height: 70px;
+    text-decoration: none;
 }
+/* 
+.option:hover {
+    color: white;
+} */
 
 .fa {
     font-size: 1.3rem;
