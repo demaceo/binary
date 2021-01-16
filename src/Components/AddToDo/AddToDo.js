@@ -51,7 +51,7 @@ function AddToDo(props) {
         </Form.Group>
         <div className="button-container">
           <button className="addButton" type="Submit" onClick={ createNewTodo }>
-            Add
+            +
           </button>
         </div>
       </div>

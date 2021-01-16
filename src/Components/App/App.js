@@ -33,9 +33,7 @@ function App() {
       <div className="App">
         <Header />
         <Route exact path="/" render={() => (
-          <>
           <News />
-          </>
         )}
         />
         <Route
@@ -59,26 +57,3 @@ function App() {
 }
 
 export default App;
-
-    // <Router>
-    //   <div className="App">
-    //     <div className="container">
-    //       <Header />
-    //       <Route
-    //         exact
-    //         path="/"
-    //         render={(props) => (
-    //           <>
-    //             <AddToDo addToDo={this.addToDo} />
-    //             <ToDos
-    //               todos={this.state.todos}
-    //               toggleComplete={this.toggleComplete}
-    //               delToDo={this.delToDo}
-    //             />
-    //           </>
-    //         )}
-    //       />
-    //       <Route path="/About" component={About} />
-    //     </div>
-    //   </div>
-    // </Router>;
