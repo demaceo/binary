@@ -68,7 +68,7 @@
 }
 
 .addButton {
-   width: 5vw;
+   width: 2vw;
    right: 5%;
    height: 2.5vh;
    border-radius: 5px;
@@ -76,14 +76,28 @@
    background-color: #282c34a1;
    color: antiquewhite;
    outline: none;
-   transition: all .6s ease-in-out;
-
+   box-shadow: 0 5px 8px rgba(0, 0, 0, .2), 0 -1px 4px rgba(0, 0, 0, .2);
+   animation: grow 15s infinite linear;
+   transition: all .4s ease-in-out;
 }
 
 .addButton:hover {
-    background-color:white;
-    color: #282c34;
-    font-weight: bold;
-    transform: scale(1.050);
+    font-weight: 300;
+    background-color: rgb(158, 207, 207);
+    color: black;
+    transform: scale(1.20);
+}
 
+ @keyframes grow {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.20);
+        background-color: azure;
+        color: black;
+    }
+    100% {
+        transform: scale(1);
+    }
 }

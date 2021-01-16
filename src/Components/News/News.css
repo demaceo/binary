@@ -1,0 +1,19 @@
+.news-container {
+    /* display: flex;
+    flex-direction: row; */
+    width: 90vw;
+    height: 75vh;
+    border-radius: 10px;
+    margin: 1em 0em;
+    justify-content: center;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Montserrat', sans-serif;
+    color:#282c34;
+    background-color: hsla(200, 43%, 82%, 0.185);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2),
+    0 -1px 4px rgba(0, 0, 0, .2);
+}
+
+img {
+    width: 50%;
+}
