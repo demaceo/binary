@@ -6,22 +6,36 @@ import LogIn from '../LogIn/LogIn';
 import Header from '../Header/Header';
 import ToDos from '../ToDos/ToDos';
 import { BrowserRouter as Router, Route} from "react-router-dom";
+import { useLocalStorage } from "../../utilities/useLocalStorage";
+
 import News from '../News/News';
-import Landing from '../Landing/Landing';
+// import Landing from '../Landing/Landing';
+import { getBreakingNews } from "../../utilities/apiCalls";
+
 
 function App() {
   const [todos, setTodos] = useState([]);
-  const [priority, setPriority] = useState('');
-  
+  const [priorityLevel, setPriorityLevel] = useState('');
+  const [breakingNews, setBreakingNews] = useState([]);
+  const [localStorage, setLocalStorage] = useLocalStorage("toDos");
+
+
+  useEffect(() => { //BREAK THIS UP INTO EACH COMPONENT (NEWS, TODOS) FOR EFFICIENCY
+    getBreakingNews().then((data) => setBreakingNews(data));
+    let storedToDos = localStorage;
+    storedToDos = storedToDos ? storedToDos : [];
+    setTodos(storedToDos);
+  }, []);
+
   const addToDo = (newToDo) => {
     if (todos.length === 0) {
       setTodos([newToDo]);
-      // setLocalStorage(toDos);
+      setLocalStorage(todos);
     } 
-    // else if (!todos.includes(newToDo)) {
-    //   setTodos([newToDo, ...todos]);
-    //   // setLocalStorage([newToDo, ...todos])
-    // }
+    else if (!todos.includes(newToDo)) {
+      setTodos([newToDo, ...todos]);
+      setLocalStorage([newToDo, ...todos])
+    }
   }
   
   const delToDo = (id) => {
@@ -34,7 +48,7 @@ function App() {
       <div className="App">
         <Header />
         <Route exact path="/" render={() => (
-          <News />
+          <News breakingNews={getBreakingNews()} />
         )}
         />
         <Route
@@ -49,9 +63,8 @@ function App() {
           path="/add"
           render={() => (
             <>
-              <Landing />
-              <AddToDo addToDo={addToDo} />
-              </>
+              <AddToDo setPriorityLevel={setPriorityLevel} addToDo={addToDo} />
+            </>
           )}
         />
         <NavBar />
