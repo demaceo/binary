@@ -7,6 +7,7 @@ import Header from '../Header/Header';
 import ToDos from '../ToDos/ToDos';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import News from '../News/News';
+import Landing from '../Landing/Landing';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -47,7 +48,10 @@ function App() {
           exact
           path="/add"
           render={() => (
+            <>
+              <Landing />
               <AddToDo addToDo={addToDo} />
+              </>
           )}
         />
         <NavBar />
