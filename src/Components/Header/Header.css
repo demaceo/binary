@@ -70,14 +70,20 @@
     align-self: flex-end;
     font-size: 1.5em;
     color: rgb(165, 42, 42);
-    animation: spin 5s infinite;
+    animation: clockwise 5s infinite;
   }
 
-  @keyframes spin {
+ .counter {
+      animation: counter 5s infinite;
+  }
+
+  @keyframes clockwise {
     0% {
-        transform: rotate(360deg);
+        transform: rotate(-360deg);
     }
-    /* 100% {
-        transform: rotate(360deg);
-    } */
 }
+  @keyframes counter {
+      0% {
+          transform: rotate(360deg);
+      }
+  }

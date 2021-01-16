@@ -38,7 +38,6 @@ function AddToDo(props) {
           className="dropdown-container"
           controlId="exampleForm.ControlSelect1"
         >
-          {/* <Form.Label>Priority: </Form.Label> */}
           <Form.Control
             className="dropdown-menu"
             as="select"
@@ -55,9 +54,6 @@ function AddToDo(props) {
             Add
           </button>
         </div>
-        {/* <div>To-Do: {toDo}</div> */}
-        {/* <div> Previous To-Do: {prevToDo.current}</div> */}
-        {/* <div>Render Count: {renderCount.count}</div> */}
       </div>
     );
 }

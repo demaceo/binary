@@ -16,39 +16,41 @@ function Header() {
         setInterval(() => {
             setTime(new Date().toLocaleString().slice(11))
         }, 1000)
-        renderCounter.current = renderCounter.current + 1
+        renderCounter.current = 0
     }, [])
     
-    const toggleTime = async(day) => {
-        console.log("dateref", dateRef.current.innerText);
+    const toggleTime = (day) => {
         if (!renderCounter.current) {
           timeRef.current.classList.remove("hidden");
           hourGlassRef.current.classList.add("hidden");
-        } else {
-          timeRef.current.classList.add("hidden");
-          hourGlassRef.current.classList.remove("hidden");
+        } else if(renderCounter.current > 0) {
+            timeRef.current.classList.add("hidden");
+            hourGlassRef.current.classList.remove("counter");
+            hourGlassRef.current.classList.remove("hidden");
+        }else {
+            timeRef.current.classList.add("hidden");
+            hourGlassRef.current.classList.add('counter');
+            hourGlassRef.current.classList.remove("hidden");
         }
     }
 
     const rewind = async() => {
         let newDayNum = (Number(date.slice(8)) - 1).toString();
         let previousDay = currentMonth.concat(" " + newDayNum);
-        if(counter !== -7) {
-            setDate(previousDay);
-            renderCounter.current = renderCounter.current - 1; 
-            toggleTime(date); 
+        if (renderCounter.current !== -7) {
+          setDate(previousDay);
+          renderCounter.current = renderCounter.current - 1;
+          toggleTime(date);
         }
     }
 
   const fastForward = async() => {
     let newDayNum = (Number(date.slice(8)) + 1).toString();
     let nextDay = currentMonth.concat(" " + newDayNum);
-    if (counter !== 7) {
-        setDate(nextDay);
-        renderCounter.current = renderCounter.current + 1;
-        toggleTime(date);
-        
-        
+    if (renderCounter.current !== 7) {
+      setDate(nextDay);
+      renderCounter.current = renderCounter.current + 1;
+      toggleTime(date);
     } 
   };
 
