@@ -6,14 +6,16 @@
   flex-direction: column;
   justify-content: space-around; */
   text-align: center;
-    background-color: #282c34;
-    min-height: 110vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* font-size: calc(10px + 2vmin); */
-    color: black;
-    width: auto;
+  background-color: #282c34;
+  min-height: 110vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* font-size: calc(10px + 2vmin); */
+  color: black;
+  width: auto;
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .App-header {

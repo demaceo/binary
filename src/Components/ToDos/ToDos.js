@@ -1,5 +1,4 @@
 import React from 'react'
-import AddToDo from '../AddToDo/AddToDo';
 import './ToDos.css';
 
 export default function ToDos() {
