@@ -1,13 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import './Header.css';
 
-
 function Header() {
     const [time, setTime] = useState();
-    const [date, setDate] = useState(Date().toLocaleString().slice(0, 11));
-    const [counter, setCounter] =  useState(0);
+    // const [date, setDate] = useState(Date().toLocaleString().slice(0, 11));
+    let date = Date().toLocaleString().slice(0, 11);
     const renderCounter = useRef(0)
-    const currentMonth = date.slice(0, 7);
     const timeRef = useRef();
     const hourGlassRef = useRef();
     const dateRef = useRef();
@@ -16,7 +14,7 @@ function Header() {
         setInterval(() => {
             setTime(new Date().toLocaleString().slice(11))
         }, 1000)
-        renderCounter.current = 0
+        renderCounter.current = 0;
     }, [])
     
     const toggleTime = (day) => {
@@ -27,32 +25,38 @@ function Header() {
             timeRef.current.classList.add("hidden");
             hourGlassRef.current.classList.remove("counter");
             hourGlassRef.current.classList.remove("hidden");
-        }else {
+        } else {
             timeRef.current.classList.add("hidden");
             hourGlassRef.current.classList.add('counter');
             hourGlassRef.current.classList.remove("hidden");
         }
     }
 
-    const rewind = async() => {
-        let newDayNum = (Number(date.slice(8)) - 1).toString();
-        let previousDay = currentMonth.concat(" " + newDayNum);
-        if (renderCounter.current !== -7) {
-          setDate(previousDay);
-          renderCounter.current = renderCounter.current - 1;
-          toggleTime(date);
-        }
+    const adjustDate = (num) => {
+        Date.prototype.addDays = (num) => {
+            let dater = new Date();
+            dater.setDate(dater.getDate() + num);
+            return dater;
+        };
+        let daze = new Date();
+        return daze.addDays(renderCounter.current);
     }
 
-  const fastForward = async() => {
-    let newDayNum = (Number(date.slice(8)) + 1).toString();
-    let nextDay = currentMonth.concat(" " + newDayNum);
-    if (renderCounter.current !== 7) {
-      setDate(nextDay);
-      renderCounter.current = renderCounter.current + 1;
-      toggleTime(date);
-    } 
-  };
+const rewind = () => { 
+    renderCounter.current = renderCounter.current - 1;
+    let newDate = adjustDate(renderCounter.current);
+    date = newDate.toString().slice(0, 10);
+    toggleTime(date);
+    dateRef.current.innerText = date;
+}
+
+const fastForward = () => {
+    renderCounter.current = renderCounter.current + 1;
+    let newDate = adjustDate(renderCounter.current);
+    date = newDate.toString().slice(0, 10);
+    toggleTime(date);
+    dateRef.current.innerText = date;
+};
 
     return (
       <div className="header-container">
@@ -60,11 +64,11 @@ function Header() {
         <h3 className="time" ref={ timeRef }>{time}</h3>
         <i class="fas fa-hourglass-half hidden" ref={hourGlassRef} />
         <div className="header-arrows">
-          <i className="fas fa-chevron-left" id="left" onClick={rewind}></i>
+          <i className="fas fa-chevron-left" id="left" onDoubleClick={rewind}></i>
           <i
             className="fas fa-chevron-right"
             id="right"
-            onClick={fastForward}
+            onDoubleClick={fastForward}
           ></i>
         </div>
       </div>
