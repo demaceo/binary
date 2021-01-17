@@ -11,20 +11,23 @@ const News = () => {
       }, []);
 
     const newsArticles = breakingNews.map((article) => {
+      let title = article.title.rendered.replaceAll("&#8217;", "'");
+      title = title.replaceAll(/F&#038;F9|&#8220;|&#8221;|&#8230;/g, "");
+      title = title.replace(/(<([^>]+)>)/gi, "");
+      title = title.replaceAll("&#8212;", "-");
+      title = title.replaceAll("&#8211;", "- ");
 
-        let title = article.title.rendered.replaceAll("&#8217;", "'");
-        title = title.replace( /(<([^>]+)>)/ig, '');
-        title = title.replaceAll("F&#038;F9", "");
-        let content = article.content.rendered.replace(/(<([^>]+)>)/gi, "");
-        content = content.replaceAll("&#8217;", "'");
-        content = content.replaceAll("&#8230;", "");
-        content = content.replaceAll("F&#038;F9", "");
-        content = content.replaceAll("&#8220;", "");
-        content = content.replaceAll("&#8221;", "");
-        content = content.replace('Read More', "");
+      let content = article.content.rendered.replace(/(<([^>]+)>)/gi, "");
+      content = content.replaceAll("&#8217;", "'");
+      content = content.replaceAll(
+        /F&#038;F9|&#8220;|&#8221;|&#8230;|Read More/g,
+        ""
+      );
+      content = content.replaceAll("&#8212;", "-");
+      content = content.replaceAll("&#8211;", "- ");
+      content = content.slice(0, 1000);
 
-        if (article.jetpack_featured_media_url !== "") {
-
+      if (article.jetpack_featured_media_url !== "") {
         return (
           <Article
             key={article.id}
@@ -35,8 +38,8 @@ const News = () => {
             link={article.link}
           />
         );
-        }
-      });
+      }
+    });
 
   return (
       <>
