@@ -7,7 +7,7 @@ function Article({id, image, title, content, link}) {
         window.open(link);
     }
     return (
-      <article className="news-article" id={id} onClick={handleClick}>
+      <article className="news-article" id={id} onDoubleClick={handleClick}>
         <img src={image} className="article-img center" />
         <div className="article-container center">
           <h3 className="article-title">{title}</h3>

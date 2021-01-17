@@ -18,10 +18,10 @@ const News = () => {
       title = title.replaceAll("&#8211;", "- ");
 
       let content = article.content.rendered.replace(/(<([^>]+)>)/gi, "");
-      content = content.replaceAll("&#8217;", "'");
+      content = content.replaceAll(/&#8217;|&#8221;/g, " ' ");
       content = content.replaceAll(
-        /F&#038;F9|&#8220;|&#8221;|&#8230;|Read More/g,
-        ""
+        /F&#038;F9|&#8220;|&#8230;|Read More/g,
+        " "
       );
       content = content.replaceAll("&#8212;", "-");
       content = content.replaceAll("&#8211;", "- ");
