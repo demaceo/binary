@@ -12,6 +12,7 @@
     transform: translate(-50%, -50%);
     width: 330px;
     height: 60px;
+    align-items: center;
     background-color: hsla(200, 43%, 82%, 0.6);
     box-shadow: 0 2px 4px rgba(0, 0, 0, .2), 0 -1px 4px rgba(0, 0, 0, .2);
     overflow: hidden;
@@ -20,14 +21,11 @@
 
 .nav-bar {
     list-style: none;
-    /* font-family: 'Dancing Script',
-    cursive;
-    font-family: 'Montserrat',
-    sans-serif; */
     height: 50%;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    padding: 0px;
 }
 
 .option {
