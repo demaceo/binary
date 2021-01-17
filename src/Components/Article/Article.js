@@ -2,13 +2,17 @@ import { findAllByTitle } from '@testing-library/react';
 import React from 'react'
 import './Article.css';
 
-function Article({id, title, content}) {
-
+function Article({id, image, title, content, link}) {
+    const handleClick = () => {
+        window.open(link);
+    }
     return (
-      <article className="news-article" id={id}>
-        <h3 className="article-title">{title}</h3>
-        <img className="article-img"></img>
-        <p className="article-info">{content}</p>
+      <article className="news-article" id={id} onClick={handleClick}>
+        <img src={image} className="article-img center" />
+        <div className="article-container center">
+          <h3 className="article-title">{title}</h3>
+          <p className="article-info">{content}</p>
+        </div>
       </article>
     );
 }
