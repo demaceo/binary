@@ -1,62 +1,82 @@
 import React from 'react'
 import './ToDos.css';
-import { useState, useEffect, useRef } from "react";
-import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 
-function ToDos() {
-    let category = "Important & Urgent";
-    let categoryRef = useRef('');
-   const updateCategory = (cat) => {
-        category = cat;
-    }
-    return (
-      <div className="priorities-container center">
-        <Link to={`/category/${category}`} className="priority">
-          <div
-            className="box center"
-            style={{ backgroundColor: "#3C7FF2" }}
-            onMouseOver={updateCategory("Important & Urgent")}
-          ></div>
-          <div className="content center">
-            <h1>Important & Urgent</h1>
-          </div>
-        </Link>
-        <Link to={`/category/${category}`} className="priority">
-          <div
-            className="box center"
-            style={{ backgroundColor: "#FBA260" }}
-            onMouseOver={updateCategory("Important, Not Urgent")}
-          ></div>
-          <div className="content center">
-            <h1>Important, Not Urgent</h1>
-          </div>
-        </Link>
-        <Link
-          to={`/category/${category}`}
-          className="priority"
-        >
-          <div
-            className="box center"
-            style={{ backgroundColor: "#8A78F0" }}
-            onMouseOver={updateCategory("Urgent, Not Important")}
-          ></div>
-          <div className="content center">
-            <h1>Urgent, Not Important</h1>
-          </div>
-        </Link>
-        <Link to={`/category/${category}`} className="priority">
-          <div
-            className="box center"
-            style={{ backgroundColor: "#EE6C74" }}
-            onMouseOver={updateCategory("Not Important Nor Urgent")}
-         
-          ></div>
-          <div className="content center">
-            <h1>Not Important Nor Urgent</h1>
-          </div>
-        </Link>
-      </div>
-    );
+function ToDos({todos, toggleComplete}) {
+    const todoList = todos.map((todo) => {
+        const getStyle = () => {
+            return {
+            textDecoration: todo.completed ? "line-through" : "none",
+            color: todo.completed
+                ? "rgba(255, 255, 255, 0.137)"
+                : "white",
+            };
+        };
+        if (todo.priority === "Important and Urgent") {
+            return (
+              <div className="priority">
+                <div
+                  className="box center"
+                  style={{ backgroundColor: "#EE6C74" }}
+                >
+                  <input
+                    type="checkbox"
+                    onChange={toggleComplete(todo.id)}
+                    className="toggle-complete"
+
+                  />
+                  <div className="content center" >
+                    <h1>Important & Urgent</h1>
+
+                    <p style={getStyle()}>{todo.title}</p>
+                  </div>
+                </div>
+              </div>
+            );
+        } else if (todo.priority === "Important, Not Urgent") {
+            return (
+              <div className="priority">
+                <div
+                  className="box center"
+                  style={{ backgroundColor: "#FBA260" }}
+                >
+                  <div className="content center">
+                    <h1>Important, Not Urgent</h1>
+                    <p>{todo.title}</p>
+                  </div>
+                </div>
+              </div>
+            );
+        } else if (todo.priority === "Urgent, Not Important" ) {
+            return (
+              <div className="priority">
+                <div
+                  className="box center"
+                  style={{ backgroundColor: "#3C7FF2" }}
+                >
+                <div className="content center">
+                  <h1>Urgent, Not Important</h1>
+                  <p>{todo.title}</p>
+                </div>
+                </div>
+              </div>
+            );
+        } else {
+            return(
+              <div className="priority">
+                <div
+                  className="box center"
+                  style={{ backgroundColor: "#8A78F0" }}
+                >
+                <div className="content center">
+                  <h1>Not Important Nor Urgent</h1>
+                  <p>{todo.title}</p>
+                </div>
+                </div>
+              </div>
+            )
+        };
+    })
+    return (<div className="priority-container">{todoList}</div>);
 };
 
 export default ToDos;
