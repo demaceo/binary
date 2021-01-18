@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import NavBar from '../NavBar/NavBar';
 import AddToDo from '../AddToDo/AddToDo';
 import LogIn from '../LogIn/LogIn';
@@ -9,54 +9,65 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 import { useLocalStorage } from "../../utilities/useLocalStorage";
 import News from '../News/News';
 // import Landing from '../Landing/Landing';
-
+import Category from  '../Category/Category';
 
 function App() {
   const [todos, setTodos] = useState([]);
-  const [priorityLevel, setPriorityLevel] = useState('');
-  const [localStorage, setLocalStorage] = useLocalStorage("toDos");
+  const [priorityLevel, setPriorityLevel] = useState('asdf');
+  const [localStorage, setLocalStorage] = useLocalStorage("todos");
 
-
-  useEffect( async() => { //BREAK THIS UP INTO EACH COMPONENT (NEWS, TODOS) FOR EFFICIENCY
+  useEffect(() => { 
     let storedToDos = localStorage;
     storedToDos = storedToDos ? storedToDos : [];
     setTodos(storedToDos);
   }, []);
 
-  const addToDo = (newToDo) => {
-    if (todos.length === 0) {
-      setTodos([newToDo]);
-      setLocalStorage(todos);
-    } 
-    else if (!todos.includes(newToDo)) {
-      setTodos([newToDo, ...todos]);
-      setLocalStorage([newToDo, ...todos])
-    }
-  }
+  // const addToDo = (newToDo) => {
+  //   if (todos.length === 0) {
+  //     setTodos([newToDo]);
+  //     setLocalStorage(todos);
+  //   } 
+  //   else if (!todos.includes(newToDo)) {
+  //     setTodos([newToDo, ...todos]);
+  //     setLocalStorage([newToDo, ...todos])
+  //   }
+  // }
   
-  const delToDo = (id) => {
-    const filteredToDos = todos.filter((todo) => todo.id !== id);
-    setTodos(filteredToDos); 
-  }
+  // const delToDo = (id) => {
+  //   const filteredToDos = todos.filter((todo) => todo.id !== id);
+  //   setTodos(filteredToDos); 
+  // }
 
   return (
     <Router>
       <div className="App">
         <Header />
-        <Route
-          exact
-          path="/"
-          render={() => <News />}
-        />
+        <Route exact path="/" render={() => <News />} />
         <Route exact path="/toDos" render={() => <ToDos />} />
-        <Route
+        <Route exact path="/add" render={(props) => <AddToDo />} />
+        {/* <Route
           exact
-          path="/add"
-          render={() => (
-            <>
-              <AddToDo setPriorityLevel={setPriorityLevel} addToDo={addToDo} />
-            </>
-          )}
+          path="/category"
+          render={(props) => <Category priorityLevel={priorityLevel} />}
+        /> */}
+        <Route
+          path="/category/:id"
+          render={({ match }) => {
+            const category = todos.filter(
+              // (todo) => todo.priority === parseInt(match.params.id)
+              (todo) => {
+                if(todo.priority === parseInt(match.params.id)){
+                  console.log(todo.priority)
+                  console.log(parseInt(match.params.id));
+                }}
+            );
+            if (!category) {
+              return <div>Sorry.. no todos found for this category!</div>;
+            }
+            console.log(category)
+            return <Category {...category} />;
+          }
+        }
         />
         <NavBar />
       </div>
