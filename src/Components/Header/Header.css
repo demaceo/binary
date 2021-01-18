@@ -20,14 +20,17 @@
 .date {
     width: 85%;
     height: auto;
-    font-size: 5rem;
+    font-size: 7vw;
     position: absolute;
-    margin-bottom: 0;
-    margin-top: 40px;
+    margin-bottom: 1vh;
+    margin-top: 2vh;
     transition: all 1s ease-in-out;
 }
 
 .time {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
     width: 85%;
     height: auto;
     position: absolute;
