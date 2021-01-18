@@ -1,8 +1,9 @@
 import "./NavBar.css";
 import { Link } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
 
 
-function NavBar() {
+function NavBar(priorityLevel) {
   return (
       <div className="nav-container">
         <ul className="nav-bar">
@@ -14,7 +15,7 @@ function NavBar() {
             <i className="fa fa-plus" aria-hidden="true"></i>
             <span className="option-text">Add</span>
           </Link>
-          <Link to="/toDos" className="option">
+          <Link to="/toDos" className="option" priorityLevel={priorityLevel}>
             <i className="fa fa-th-large" aria-hidden="true"></i>
             <span className="option-text">To-Dos</span>
           </Link>

@@ -12,7 +12,10 @@ const News = () => {
 
     const newsArticles = breakingNews.map((article) => {
       let title = article.title.rendered.replaceAll("&#8217;", "'");
-      title = title.replaceAll(/F&#038;F9|&#8220;|&#8221;|&#8230;/g, "");
+      title = title.replaceAll(
+        /F&#038;F9|&#8220;|&#8221;|&#8216;|&#8230;/g,
+        ""
+      );
       title = title.replace(/(<([^>]+)>)/gi, "");
       title = title.replaceAll("&#8212;", "-");
       title = title.replaceAll("&#8211;", "- ");
@@ -20,8 +23,8 @@ const News = () => {
       let content = article.content.rendered.replace(/(<([^>]+)>)/gi, "");
       content = content.replaceAll(/&#8217;|&#8221;/g, " ' ");
       content = content.replaceAll(
-        /F&#038;F9|&#8220;|&#8230;|Read More/g,
-        " "
+        /F&#038;F9|&#8216;|&#8220;|&#8230;|Read More||Keep studying|Keep reading/g,
+        ""
       );
       content = content.replaceAll("&#8212;", "-");
       content = content.replaceAll("&#8211;", "- ");
