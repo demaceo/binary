@@ -5,7 +5,7 @@ export const useLocalStorage = (key, initialValue) => {
         if (!initialValue) {
           const value = localStorage.getItem(key);
           return value ? JSON.parse(value) : console.log("no items in storage");
-        }
+        } 
       });
 
   useEffect(() => {

@@ -1,6 +1,7 @@
-import { findAllByTitle } from '@testing-library/react';
 import React from 'react'
 import './Article.css';
+import PropTypes from "prop-types";
+
 
 function Article({id, image, title, content, link}) {
     const handleClick = () => {
@@ -17,4 +18,11 @@ function Article({id, image, title, content, link}) {
     );
 }
 
+Article.propTypes = {
+  id: PropTypes.number.isRequired,
+  image: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
 export default Article;

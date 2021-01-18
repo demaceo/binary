@@ -9,6 +9,7 @@
     width: 25vw;
     height: 25vh;
     align-items: center;
+    margin-top: 15vh;
 }
 
 .input-todo {
@@ -46,12 +47,12 @@
     justify-content: space-around;
     flex-direction: row;
     align-items: center;
-    
 }
 
 .dropdown-menu {
     border-radius: 5px;
-    padding-left: 3vw;
+    padding: 0 3vw 0 0vw;
+    font-size: .8vw;
     width: 16vw;
     height: 3vh;
     display: flex;
