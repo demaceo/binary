@@ -64,11 +64,11 @@ const fastForward = () => {
         <h3 className="time" ref={ timeRef }>{time}</h3>
         <i class="fas fa-hourglass-half hidden" ref={hourGlassRef} />
         <div className="header-arrows">
-          <i className="fas fa-chevron-left" id="left" onDoubleClick={rewind}></i>
+          <i className="fas fa-chevron-left" id="left" onClick={rewind}></i>
           <i
             className="fas fa-chevron-right"
             id="right"
-            onDoubleClick={fastForward}
+            onClick={fastForward}
           ></i>
         </div>
       </div>
