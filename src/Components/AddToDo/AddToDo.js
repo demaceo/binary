@@ -1,22 +1,12 @@
 import "./AddToDo.css";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { Form } from "react-bootstrap";
 import { nanoid } from "nanoid";
-import PropTypes from 'prop-types';
-import { useLocalStorage } from "../../utilities/useLocalStorage";
 
-const AddToDo = () => {
+const AddToDo = ({addToDo}) => {
   const [toDo, setToDo] = useState("");
-  const [todos, setTodos] = useState([]);
   const [priority, setPriority] = useState('Important and Urgent');
   const inputRef = useRef('');
-  const [localStorage, setLocalStorage] = useLocalStorage("toDos");
-
-useEffect(() => { 
-    let storedToDos = localStorage;
-    storedToDos = storedToDos ? storedToDos : [];
-    setTodos(storedToDos);
-  }, []);
 
   const createNewTodo = () => {
     const newToDo = {
@@ -25,26 +15,8 @@ useEffect(() => {
       priority,
       completed: false,
     };
-    console.log(newToDo);
     addToDo(newToDo);
     inputRef.current.value = "";
-  };
-
-  const addToDo = (newToDo) => {
-    // const newToDo = {
-    //     id: nanoid(),
-    //     title: toDo,
-    //     priority,
-    //     completed: false,
-    // };
-    if (!todos.length) {
-      setTodos([newToDo]);
-      setLocalStorage(todos);
-    } else {
-      setTodos([newToDo, ...todos]);
-      setLocalStorage([newToDo, ...todos]);
-    }
-    // inputRef.current.value = "";
   };
 
   return (
@@ -81,10 +53,5 @@ useEffect(() => {
     </div>
   );
 };
-
-// AddToDo.propTypes = {
-//   addToDo: PropTypes.func.isRequired,
-//   setPriorityLevel: PropTypes.func.isRequired,
-// };
 
 export default AddToDo;
