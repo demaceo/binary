@@ -1,25 +1,50 @@
 import "./AddToDo.css";
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Form } from "react-bootstrap";
 import { nanoid } from "nanoid";
+import PropTypes from 'prop-types';
+import { useLocalStorage } from "../../utilities/useLocalStorage";
 
-const AddToDo = (setPriorityLevel, addToDo) => {
+const AddToDo = () => {
   const [toDo, setToDo] = useState("");
-  const [priority, setPriority] = useState('"Important and Urgent"');
-  const inputRef = useRef();
+  const [todos, setTodos] = useState([]);
+  const [priority, setPriority] = useState('Important and Urgent');
+  const inputRef = useRef('');
+  const [localStorage, setLocalStorage] = useLocalStorage("toDos");
+
+useEffect(() => { 
+    let storedToDos = localStorage;
+    storedToDos = storedToDos ? storedToDos : [];
+    setTodos(storedToDos);
+  }, []);
 
   const createNewTodo = () => {
-    // inputRef.current.focus();
-    // setToDo(inputRef.current.value);
     const newToDo = {
       id: nanoid(),
-      title: inputRef.current.value,
+      title: toDo,
       priority,
       completed: false,
     };
+    console.log(newToDo);
     addToDo(newToDo);
     inputRef.current.value = "";
-    inputRef.current.placeholder = " Type your To-Do here...";
+  };
+
+  const addToDo = (newToDo) => {
+    // const newToDo = {
+    //     id: nanoid(),
+    //     title: toDo,
+    //     priority,
+    //     completed: false,
+    // };
+    if (!todos.length) {
+      setTodos([newToDo]);
+      setLocalStorage(todos);
+    } else {
+      setTodos([newToDo, ...todos]);
+      setLocalStorage([newToDo, ...todos]);
+    }
+    // inputRef.current.value = "";
   };
 
   return (
@@ -29,7 +54,6 @@ const AddToDo = (setPriorityLevel, addToDo) => {
           placeholder=" Type your To-Do here..."
           className="input-todo"
           ref={inputRef}
-          value={toDo}
           id="textarea"
           onChange={(e) => setToDo(e.target.value)}
         />
@@ -41,12 +65,12 @@ const AddToDo = (setPriorityLevel, addToDo) => {
         <Form.Control
           className="dropdown-menu"
           as="select"
-          onChange={(e) => setPriorityLevel(e.target.value)}
+          onChange={(e) => setPriority(e.target.value)}
         >
-          <option>Important and Urgent</option>
+          <option>Important & Urgent</option>
           <option>Important, Not Urgent</option>
           <option>Urgent, Not Important</option>
-          <option>Not Important, Not Urgent</option>
+          <option>Not Important Nor Urgent</option>
         </Form.Control>
       </Form.Group>
       <div className="button-container">
@@ -58,5 +82,9 @@ const AddToDo = (setPriorityLevel, addToDo) => {
   );
 };
 
+// AddToDo.propTypes = {
+//   addToDo: PropTypes.func.isRequired,
+//   setPriorityLevel: PropTypes.func.isRequired,
+// };
 
 export default AddToDo;
