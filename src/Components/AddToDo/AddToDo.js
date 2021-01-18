@@ -2,6 +2,7 @@ import "./AddToDo.css";
 import { useState, useRef } from "react";
 import { Form } from "react-bootstrap";
 import { nanoid } from "nanoid";
+import PropTypes from "prop-types";
 
 const AddToDo = ({addToDo}) => {
   const [toDo, setToDo] = useState("");
@@ -52,6 +53,10 @@ const AddToDo = ({addToDo}) => {
       </div>
     </div>
   );
+};
+
+AddToDo.propTypes = {
+  addToDo: PropTypes.func.isRequired,
 };
 
 export default AddToDo;

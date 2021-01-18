@@ -1,7 +1,9 @@
 import React from 'react';
 import './ToDo.css';
+import PropTypes from "prop-types";
 
-export default function Todo({id, title, priority, completed}) {
+
+function Todo({id, title, priority, completed}) {
     return (
       <article className="todo" id={id}>
         <div className="todo-container center">
@@ -10,3 +12,13 @@ export default function Todo({id, title, priority, completed}) {
       </article>
     );
 }
+
+Todo.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+};
+
+
+export default Todo;
+
+

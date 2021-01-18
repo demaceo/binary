@@ -1,5 +1,6 @@
 import "./News.css";
 import Article from '../Article/Article';
+import PropTypes from "prop-types";
 
 const News = ({breakingNews}) => {
     const newsArticles = breakingNews.map((article) => {
@@ -45,5 +46,9 @@ const News = ({breakingNews}) => {
     </>
   );
 }
+
+News.propTypes = {
+  breakingNews: PropTypes.object.isRequired,
+};
 
 export default News;

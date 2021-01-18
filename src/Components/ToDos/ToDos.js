@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { Component } from "react";
 import './ToDos.css';
+import PropTypes from "prop-types";
 
-function ToDos({todos, toggleComplete}) {
+
+function ToDos({todos}) {
+    if(todos.length) {
     const todoList = todos.map((todo) => {
-        const getStyle = () => {
-            return {
-            textDecoration: todo.completed ? "line-through" : "none",
-            color: todo.completed
-                ? "rgba(255, 255, 255, 0.137)"
-                : "white",
-            };
-        };
+        // const getStyle = () => {
+        //     return {
+        //     textDecoration: todo.completed ? "line-through" : "none",
+        //     color: todo.completed
+        //         ? "rgba(255, 255, 255, 0.137)"
+        //         : "white",
+        //     };
+        // };
         if (todo.priority === "Important and Urgent") {
             return (
               <div className="priority">
@@ -18,16 +21,13 @@ function ToDos({todos, toggleComplete}) {
                   className="box center"
                   style={{ backgroundColor: "#EE6C74" }}
                 >
-                  <input
+                  {/* <input
                     type="checkbox"
-                    onChange={toggleComplete(todo.id)}
                     className="toggle-complete"
-
-                  />
+                  /> */}
                   <div className="content center" >
                     <h1>Important & Urgent</h1>
-
-                    <p style={getStyle()}>{todo.title}</p>
+                    <p>{todo.title}</p>
                   </div>
                 </div>
               </div>
@@ -76,7 +76,27 @@ function ToDos({todos, toggleComplete}) {
             )
         };
     })
-    return (<div className="priority-container">{todoList}</div>);
+    return (
+        <>
+        <h2 className="todos-title">To - Do's</h2>
+    <div className="priority-container">{todoList}</div>
+    </>
+    );
+    } else {
+        return (
+            <>
+        <h2 className="todos-title">YOU HAVE NOTHING TO DO!</h2>
+        <section className="no-todos">
+            Click the '+' icon to add to-dos.
+        </section>
+        </>
+        )
+    }
 };
+
+ToDos.propTypes = {
+  todos: PropTypes.array.isRequired,
+};
+
 
 export default ToDos;
