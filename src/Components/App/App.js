@@ -8,49 +8,63 @@ import ToDos from '../ToDos/ToDos';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import { useLocalStorage } from "../../utilities/useLocalStorage";
 import News from '../News/News';
+import { getBreakingNews } from "../../utilities/apiCalls";
+
 // import Landing from '../Landing/Landing';
-import Category from  '../Category/Category';
+// import Category from  '../Category/Category';
 
 function App() {
   const [todos, setTodos] = useState([]);
-  const [priorityLevel, setPriorityLevel] = useState('asdf');
-  const [localStorage, setLocalStorage] = useLocalStorage("todos");
+  // const [priorityLevel, setPriorityLevel] = useState('asdf');
+  const [localStorage, setLocalStorage] = useLocalStorage("toDos");
+  const [breakingNews, setBreakingNews] = useState([]);
 
   useEffect(() => { 
     let storedToDos = localStorage;
     storedToDos = storedToDos ? storedToDos : [];
     setTodos(storedToDos);
+    getBreakingNews().then((data) => setBreakingNews(data))
   }, []);
 
-  // const addToDo = (newToDo) => {
-  //   if (todos.length === 0) {
-  //     setTodos([newToDo]);
-  //     setLocalStorage(todos);
-  //   } 
-  //   else if (!todos.includes(newToDo)) {
-  //     setTodos([newToDo, ...todos]);
-  //     setLocalStorage([newToDo, ...todos])
-  //   }
-  // }
-  
-  // const delToDo = (id) => {
-  //   const filteredToDos = todos.filter((todo) => todo.id !== id);
-  //   setTodos(filteredToDos); 
-  // }
+  const addToDo = (newToDo) => {
+    if (!todos) {
+      setTodos([newToDo]);
+      setLocalStorage(todos);
+    } 
+    else {
+      setTodos([newToDo, ...todos]);
+      setLocalStorage([newToDo, ...todos])
+    }
+  }
+
+  const delToDo = (id) => {
+    const filteredToDos = todos.filter((todo) => todo.id !== id);
+    setTodos(filteredToDos); 
+    setLocalStorage(todos);
+  }
+
+  const toggleComplete = (id) => {
+      todos.map((todo) => {
+          if (todo.id === id) {
+            todo.completed = !todo.completed;
+          }
+          return todo;
+        })
+  };
 
   return (
     <Router>
       <div className="App">
         <Header />
-        <Route exact path="/" render={() => <News />} />
-        <Route exact path="/toDos" render={() => <ToDos />} />
-        <Route exact path="/add" render={(props) => <AddToDo />} />
+        <Route exact path="/" render={() => <News breakingNews={breakingNews}/>} />
+        <Route exact path="/toDos" render={() => <ToDos todos={todos} toggleComplete={toggleComplete}/>} />
+        <Route exact path="/add" render={() => <AddToDo addToDo={addToDo}/>} />
         {/* <Route
           exact
           path="/category"
           render={(props) => <Category priorityLevel={priorityLevel} />}
         /> */}
-        <Route
+        {/* <Route
           path="/category/:id"
           render={({ match }) => {
             const category = todos.filter(
@@ -68,7 +82,7 @@ function App() {
             return <Category {...category} />;
           }
         }
-        />
+        /> */}
         <NavBar />
       </div>
     </Router>
