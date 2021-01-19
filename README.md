@@ -40,11 +40,10 @@ The project emphasises React fundamentals, such as state management/synching acr
 
 In this view the users are presented with regularly updated News articles which are at first displayed by their corresponding images. When mousing over an article, the title and content of the article is revealed. When double-clicking on an article, the user will be redirected to that articles full-content page.
 
-
+![date](https://media.giphy.com/media/GvAXClsXEPfdfyyuLV/giphy.gif)
 ![articleHover](https://media.giphy.com/media/oqH7sRn4L1Xqxv4nLo/giphy.gif)
-
 ![dblClickArticle](https://media.giphy.com/media/gymGs6sKFnDBqO7fXo/giphy.gif)
-
+![navbar](https://media.giphy.com/media/31meY80DVpJYkJEZoa/giphy.gif)
 
 <details>
   <summary>**Under the Hood**</summary>
@@ -70,8 +69,8 @@ To-Dos are populated with any To-Do that has been added by a user. Local storage
 
 
 ![add_todo](https://media.giphy.com/media/pyZMu2CTeMiPM3WFiW/giphy.gif)
-
-![to_dos](https://media.giphy.com/media/uRa7upQ8NHljJwjJ5S/giphy.gif)
+![priority](https://media.giphy.com/media/TNEVda3SNcJWCHFfzx/giphy.gif)
+![to_dos](https://media.giphy.com/media/GvAXClsXEPfdfyyuLV/giphy.gif)
 
 ## Reflection
 
