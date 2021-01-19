@@ -10,14 +10,16 @@ const AddToDo = ({addToDo}) => {
   const inputRef = useRef('');
 
   const createNewTodo = () => {
-    const newToDo = {
-      id: nanoid(),
-      title: toDo,
-      priority,
-      completed: false,
-    };
-    addToDo(newToDo);
-    inputRef.current.value = "";
+    if(toDo){
+      const newToDo = {
+        id: nanoid(),
+        title: toDo,
+        priority,
+        completed: false,
+      };
+      addToDo(newToDo);
+      inputRef.current.value = "";
+    }
   };
 
   return (
