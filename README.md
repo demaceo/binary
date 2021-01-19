@@ -48,6 +48,8 @@ In this view the users are presented with regularly updated News articles which 
 
 ![navbar](https://media.giphy.com/media/31meY80DVpJYkJEZoa/giphy.gif)
 
+
+
 <details>
   <summary>**Under the Hood**</summary>
 
@@ -72,8 +74,11 @@ To-Dos are populated with any To-Do that has been added by a user. Local storage
 
 
 ![add_todo](https://media.giphy.com/media/pyZMu2CTeMiPM3WFiW/giphy.gif)
+
 ![priority](https://media.giphy.com/media/TNEVda3SNcJWCHFfzx/giphy.gif)
+
 ![to_dos](https://media.giphy.com/media/GvAXClsXEPfdfyyuLV/giphy.gif)
+
 
 ## Reflection
 
