@@ -17,7 +17,3 @@ describe("App", () => {
     expect(navToDos).toBeInTheDocument();
   });
 });
-
-
-
-
