@@ -14,7 +14,7 @@ const News = ({breakingNews}) => {
       title = title.replaceAll("&#8211;", "- ");
 
       let content = article.content.rendered.replace(/(<([^>]+)>)/gi, "");
-      content = content.replaceAll(/&#8217;|&#8221;/g, " ' ");
+      content = content.replaceAll(/&#8217;|&#8221;/g, "' ");
       content = content.replaceAll(
         /F&#038;F9|&#8216;|&#8220;|&#8230;|Read More||Keep studying|Keep reading/g,
         ""
@@ -48,7 +48,7 @@ const News = ({breakingNews}) => {
 }
 
 News.propTypes = {
-  breakingNews: PropTypes.object.isRequired,
+  breakingNews: PropTypes.array.isRequired,
 };
 
 export default News;

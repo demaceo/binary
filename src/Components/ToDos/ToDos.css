@@ -24,7 +24,7 @@
     font-size: 3em;
 }
 
-.priority-container {
+#priority-container {
     width: 70vw;
     height: auto;
     display: flex;
