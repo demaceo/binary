@@ -73,7 +73,7 @@ With normal functionality, what ends up rendering on the homepage inside of `<Ap
 To-Dos are populated with any To-Do that has been added by a user. Local storage is used to persist To-Dos on page reload. Each To-Do is color coordinated based on its chosen level of priority.
 
 
-![add_todo](https://media.giphy.com/media/p8PAhD8EAuZPhUuVsR/giphy.gif)
+![add_todo](https://media.giphy.com/media/cPU10copwpPBuBLv2l/giphy.gif)
 
 ![to_dos](https://media.giphy.com/media/GvAXClsXEPfdfyyuLV/giphy.gif)
 
