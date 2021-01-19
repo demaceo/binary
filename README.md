@@ -75,7 +75,7 @@ To-Dos are populated with any of the To-Do that has been added by a user. Local 
 
 ## Reflection
 
-#### Future
+#### Future Iterations
 
 * Allow a user to delete &/or cross-out a completed To-Do item.
 * Make the "Add To Do" form a pop-up when clicking '+' in the Navigation Bar instead of using Router.
