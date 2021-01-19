@@ -66,7 +66,7 @@ With normal functionality, what ends up rendering on the homepage inside of `<Ap
 
 **To-Do's**
 
-To-Dos are populated with any of the To-Do that has been added by a user. Local storage is used to persist To-Dos on page reload. Each To-Do is color coordinated based on its level of priority.
+To-Dos are populated with any To-Do that has been added by a user. Local storage is used to persist To-Dos on page reload. Each To-Do is color coordinated based on its chosen level of priority.
 
 
 ![add_todo](https://media.giphy.com/media/pyZMu2CTeMiPM3WFiW/giphy.gif)
