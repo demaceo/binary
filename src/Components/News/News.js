@@ -48,7 +48,7 @@ const News = ({breakingNews}) => {
 }
 
 News.propTypes = {
-  breakingNews: PropTypes.object.isRequired,
+  breakingNews: PropTypes.array.isRequired,
 };
 
 export default News;

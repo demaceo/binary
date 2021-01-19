@@ -3,8 +3,7 @@ import './Header.css';
 
 function Header() {
     const [time, setTime] = useState();
-    // const [date, setDate] = useState(Date().toLocaleString().slice(0, 11));
-    let date = Date().toLocaleString().slice(0, 11);
+    let date = Date().toLocaleString().slice(0, 10);
     const renderCounter = useRef(0)
     const timeRef = useRef();
     const hourGlassRef = useRef();
@@ -59,10 +58,10 @@ const fastForward = () => {
 };
 
     return (
-      <div className="header-container">
+      <div id="date" className="header-container">
         <h2 className="date" ref={ dateRef }>{date}</h2>
-        <h3 className="time" ref={ timeRef }>{time}</h3>
-        <i class="fas fa-hourglass-half hidden" ref={hourGlassRef} />
+        <h3 id="time" className="time" ref={ timeRef }>{time}</h3>
+        <i className="fas fa-hourglass-half hidden" ref={hourGlassRef} />
         <div className="header-arrows">
           <i className="fas fa-chevron-left" id="left" onClick={rewind}></i>
           <i

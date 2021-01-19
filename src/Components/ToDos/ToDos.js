@@ -77,9 +77,9 @@ function ToDos({todos}) {
         };
     })
     return (
-        <>
-        <h2 className="todos-title">To - Do's</h2>
-    <div className="priority-container">{todoList}</div>
+    <>
+      <h2 className="todos-title">To - Do's</h2>
+      <div id="priority-container">{todoList}</div>
     </>
     );
     } else {

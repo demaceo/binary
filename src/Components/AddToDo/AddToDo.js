@@ -21,6 +21,8 @@ const AddToDo = ({addToDo}) => {
   };
 
   return (
+    <>
+    <h2 className="add-title">Add To-Do</h2>
     <div className="todo-form">
       <div>
         <input
@@ -40,7 +42,7 @@ const AddToDo = ({addToDo}) => {
           as="select"
           onChange={(e) => setPriority(e.target.value)}
         >
-          <option>Important & Urgent</option>
+          <option>Important and Urgent</option>
           <option>Important, Not Urgent</option>
           <option>Urgent, Not Important</option>
           <option>Not Important Nor Urgent</option>
@@ -52,6 +54,7 @@ const AddToDo = ({addToDo}) => {
         </button>
       </div>
     </div>
+    </>
   );
 };
 
