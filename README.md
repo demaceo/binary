@@ -86,7 +86,6 @@ To-Dos are populated with any To-Do that has been added by a user. Local storage
 * Make the "Add To Do" form a pop-up when clicking '+' in the Navigation Bar instead of using Router.
 * Build functionality to the forward and backwards (Today in History API) arrows in the Header component that control the displayed date.
 * Display better News articles (different API).
-* Disable "Add To Do" button until input form has been filled out.
 
 ## Developer
 
