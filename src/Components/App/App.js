@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import NavBar from '../NavBar/NavBar';
 import AddToDo from '../AddToDo/AddToDo';
 import Header from '../Header/Header';

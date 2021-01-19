@@ -16,46 +16,46 @@ function Header() {
         renderCounter.current = 0;
     }, [])
     
-    const toggleTime = (day) => {
-        if (!renderCounter.current) {
-          timeRef.current.classList.remove("hidden");
-          hourGlassRef.current.classList.add("hidden");
-        } else if(renderCounter.current > 0) {
-            timeRef.current.classList.add("hidden");
-            hourGlassRef.current.classList.remove("counter");
-            hourGlassRef.current.classList.remove("hidden");
-        } else {
-            timeRef.current.classList.add("hidden");
-            hourGlassRef.current.classList.add('counter');
-            hourGlassRef.current.classList.remove("hidden");
-        }
-    }
+    // const toggleTime = (day) => {
+    //     if (!renderCounter.current) {
+    //       timeRef.current.classList.remove("hidden");
+    //       hourGlassRef.current.classList.add("hidden");
+    //     } else if(renderCounter.current > 0) {
+    //         timeRef.current.classList.add("hidden");
+    //         hourGlassRef.current.classList.remove("counter");
+    //         hourGlassRef.current.classList.remove("hidden");
+    //     } else {
+    //         timeRef.current.classList.add("hidden");
+    //         hourGlassRef.current.classList.add('counter');
+    //         hourGlassRef.current.classList.remove("hidden");
+    //     }
+    // }
 
-    const adjustDate = (num) => {
-        Date.prototype.addDays = (num) => {
-            let dater = new Date();
-            dater.setDate(dater.getDate() + num);
-            return dater;
-        };
-        let daze = new Date();
-        return daze.addDays(renderCounter.current);
-    }
+//     const adjustDate = (num) => {
+//         Date.prototype.addDays = (num) => {
+//             let dater = new Date();
+//             dater.setDate(dater.getDate() + num);
+//             return dater;
+//         };
+//         let daze = new Date();
+//         return daze.addDays(renderCounter.current);
+//     }
 
-const rewind = () => { 
-    renderCounter.current = renderCounter.current - 1;
-    let newDate = adjustDate(renderCounter.current);
-    date = newDate.toString().slice(0, 10);
-    toggleTime(date);
-    dateRef.current.innerText = date;
-}
+// const rewind = () => { 
+//     renderCounter.current = renderCounter.current - 1;
+//     let newDate = adjustDate(renderCounter.current);
+//     date = newDate.toString().slice(0, 10);
+//     toggleTime(date);
+//     dateRef.current.innerText = date;
+// }
 
-const fastForward = () => {
-    renderCounter.current = renderCounter.current + 1;
-    let newDate = adjustDate(renderCounter.current);
-    date = newDate.toString().slice(0, 10);
-    toggleTime(date);
-    dateRef.current.innerText = date;
-};
+// const fastForward = () => {
+//     renderCounter.current = renderCounter.current + 1;
+//     let newDate = adjustDate(renderCounter.current);
+//     date = newDate.toString().slice(0, 10);
+//     toggleTime(date);
+//     dateRef.current.innerText = date;
+// };
 
     return (
       <div id="date" className="header-container">
@@ -63,12 +63,12 @@ const fastForward = () => {
         <h3 id="time" className="time" ref={ timeRef }>{time}</h3>
         <i className="fas fa-hourglass-half hidden" ref={hourGlassRef} />
         <div className="header-arrows">
-          <i className="fas fa-chevron-left" id="left" onClick={rewind}></i>
-          <i
+          {/* <i className="fas fa-chevron-left" id="left" onClick={rewind}></i> */}
+          {/* <i
             className="fas fa-chevron-right"
             id="right"
             onClick={fastForward}
-          ></i>
+          ></i> */}
         </div>
       </div>
     );

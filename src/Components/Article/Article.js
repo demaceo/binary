@@ -9,7 +9,7 @@ function Article({id, image, title, content, link}) {
     }
     return (
       <article className="news-article" id={id} onDoubleClick={handleClick}>
-        <img src={image} className="article-img center" />
+        <img src={image} alt="article-img" className="article-img center" />
         <div className="article-container center">
           <h3 className="article-title">{title}</h3>
           <p className="article-info">{content}</p>
