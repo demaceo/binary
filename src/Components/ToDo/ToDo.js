@@ -3,7 +3,7 @@ import './ToDo.css';
 import PropTypes from "prop-types";
 
 
-function Todo({id, title, priority, completed}) {
+function Todo({id, title}) {
     return (
       <article className="todo" id={id}>
         <div className="todo-container center">
