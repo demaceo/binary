@@ -10,8 +10,8 @@ const News = ({breakingNews}) => {
         ""
       );
       title = title.replace(/(<([^>]+)>)/gi, "");
-      title = title.replaceAll("&#8212;", "-");
-      title = title.replaceAll("&#8211;", "- ");
+      title = title.replace("&#8212;", "-");
+      title = title.replace("&#8211;", "- ");
 
       let content = article.content.rendered.replace(/(<([^>]+)>)/gi, "");
       content = content.replace(/&#8217;|&#8221;/g, "' ");
