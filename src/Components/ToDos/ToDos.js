@@ -27,7 +27,7 @@ function ToDos({todos}) {
                   /> */}
                   <div className="content center" >
                     <h1>Important & Urgent</h1>
-                    <p>{todo.title}</p>
+                    <p key={todo.id}>{todo.title}</p>
                   </div>
                 </div>
               </div>
@@ -41,7 +41,7 @@ function ToDos({todos}) {
                 >
                   <div className="content center">
                     <h1>Important, Not Urgent</h1>
-                    <p>{todo.title}</p>
+                    <p key={todo.id}>{todo.title}</p>
                   </div>
                 </div>
               </div>
@@ -53,27 +53,27 @@ function ToDos({todos}) {
                   className="box center"
                   style={{ backgroundColor: "#3C7FF2" }}
                 >
-                <div className="content center">
-                  <h1>Urgent, Not Important</h1>
-                  <p>{todo.title}</p>
-                </div>
+                  <div className="content center">
+                    <h1>Urgent, Not Important</h1>
+                    <p key={todo.id}>{todo.title}</p>
+                  </div>
                 </div>
               </div>
             );
         } else {
-            return(
+            return (
               <div className="priority">
                 <div
                   className="box center"
                   style={{ backgroundColor: "#8A78F0" }}
                 >
-                <div className="content center">
-                  <h1>Not Important Nor Urgent</h1>
-                  <p>{todo.title}</p>
-                </div>
+                  <div className="content center">
+                    <h1>Not Important Nor Urgent</h1>
+                    <p key={todo.id}>{todo.title}</p>
+                  </div>
                 </div>
               </div>
-            )
+            );
         };
     })
     return (
